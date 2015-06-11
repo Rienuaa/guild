@@ -1,0 +1,24 @@
+The Adventurer's Guild!
+Based off of the book Mogworld by Yahtzee Crosshaw
+
+Your end goal is to gain GOLD. You spend gold on adventuring amenities,
+and to buy monopolies and licenses to run in certain areas. Gold is the
+primary resource. There are also ADVENTURERS, which you buy that pay dues
+in GOLD to you. There is also the resource AGENTS, which refers to the 
+agents that work for the guild. You also accrue INFLUENCE in certain areas,
+which can be spent to buy special bonuses for the adventurers in the area. 
+
+   AGENTS
+   ^	|
+   |	V	
+GOLD <- ADVENTURERS <- MONSTERS
+  |               ^		^
+  V               |		|
+ GUILD HOUSES -> INFLUENCE 
+ 
+ You start with 10 gold, and one button option - to buy a single guild
+ house. This gives you a trickle of 1g/s and the ability to hire adventurers
+ in the area.
+ 
+ GOLD - INF - AGENTS - MONSTERS
+ GH		adv		ag		mob
