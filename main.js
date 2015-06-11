@@ -179,14 +179,14 @@ function buyParty(number){
 
 function buyAgent(number){
 	if ((agents[0] + number) <= maxAgents){
-		if (gold >= (agent[1] * number)){
-			payGold((agent[1] * number));
+		if (gold >= (agents[1] * number)){
+			payGold((agents[1] * number));
 			addAgent(number);
 			goldUpdate();
 			
 			if (agents[0] >= 1){
 				document.getElementById('MString').style.display = "inline";
-				document.getElementById('MPSBString').style.display = "inline";
+				document.getElementById('MPSString').style.display = "inline";
 				document.getElementById('BMButton').style.display = "inline";
 				document.getElementById('BMString').style.display = "block";
 			};
@@ -219,4 +219,4 @@ window.setInterval(function(){
 	infUpdate();
 	
 	
-}, 1000);
+}, 100);
