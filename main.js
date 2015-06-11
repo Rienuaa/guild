@@ -111,7 +111,7 @@ function addParty(number){
 //col 3
 function addAgent(number){
 	agents[0] = agents[0] + number;
-	//AGENTS CURRENTLY DO NOTHING
+	adventurers[2] = adventurers[2] + number;
 	document.getElementById('agents').innerHTML = agents[0];
 };
 
