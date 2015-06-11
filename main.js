@@ -79,6 +79,7 @@ function addLH(number){
 	largeHalls[0] = largeHalls[0] + number;
 	guildHouses[2] = guildHouses[2] + number;
 	document.getElementById('largeHalls').innerHTML = largeHalls[0];
+	document.getElementById('GHPS').innerHTML = " (" + guildHouses[2] + ")";
 	infUpdate();
 	goldUpdate();
 };
@@ -112,6 +113,7 @@ function addBM(number){
 	adventurers[2] = adventurers[2] - number;
 	document.getElementById('monsters').innerHTML = monsters[0];
 	document.getElementById('MPS').innerHTML = monsters[0];
+	document.getElementById('GHPS').innerHTML = " (" + guildHouses[2] + ")";
 	infUpdate();
 	goldUpdate();
 };
@@ -132,6 +134,7 @@ function buyGuildHouse(number){
 			document.getElementById('INFString').style.display = "inline";
 			document.getElementById('IPSString').style.display = "inline";
 			document.getElementById('adventurers').style.display = "inline";
+			document.getElementById('GHPS').style.display = "inline";
 			
 		};
 	};	
@@ -193,6 +196,8 @@ function buyAgent(number){
 			goldUpdate();
 			
 			if (agents[0] >= 1){
+				document.getElementById('APSString').style.display = "inline";
+				document.getElementById('APS').style.display = "inline";
 				document.getElementById('MString').style.display = "inline";
 				document.getElementById('MButton').style.display = "block";
 			};
@@ -207,6 +212,9 @@ function buyBasicMonster(number){
 		infUpdate();
 		
 		if (monsters[0] >= 1){
+			document.getElementById('MString').style.display = "inline";
+			document.getElementById('monsters').style.display = "inline";
+			document.getElementById('MPS').style.display = "inline";
 			document.getElementById('MPSString').style.display = "inline";
 		};
 	};
