@@ -9,7 +9,7 @@ var largeHalls = [0, 1000, 0];
 var adventurers = [0, 10, 0];
 var parties = [0, 100, 0];
 var agents = [0, 1000, 0];
-var monsters = [0, 100, 0];
+var monsters = [0, 1000, 0];
 
 var maxAgents = 0;
 /*
@@ -48,10 +48,10 @@ function hideElements(){
 	document.getElementById('AButton').style.display = "none";
 	document.getElementById('PString').style.display = "none";
 	document.getElementById('PButton').style.display = "none";
-	document.getElementById('MString').style.display = "none";
+	document.getElementById('MButton').style.display = "none";
 	document.getElementById('MPSString').style.display = "none";
-	document.getElementById('BMButton').style.display = "none";
-	document.getElementById('BMString').style.display = "none";
+	document.getElementById('MString').style.display = "none";
+
 	
 };
 
@@ -113,6 +113,14 @@ function addAgent(number){
 	agents[0] = agents[0] + number;
 	adventurers[2] = adventurers[2] + number;
 	document.getElementById('agents').innerHTML = agents[0];
+	document.getElementById('APS').innerHTML = agents[0];
+};
+//col 4
+function addBM(number){
+	monsters[0] = monsters[0] + number;
+	adventurers[2] = adventurers[2] - number;
+	document.getElementById('monsters').innerHTML = monsters[0];
+	document.getElementById('MPS').innerHTML = monsters[0];
 };
 
 
@@ -186,10 +194,20 @@ function buyAgent(number){
 			
 			if (agents[0] >= 1){
 				document.getElementById('MString').style.display = "inline";
-				document.getElementById('MPSString').style.display = "inline";
-				document.getElementById('BMButton').style.display = "inline";
-				document.getElementById('BMString').style.display = "block";
+				document.getElementById('MButton').style.display = "block";
 			};
+		};
+	};
+};
+
+function buyBasicMonster(number){
+	if (inf >= (monsters[1] * number)){
+		payInf(monsters[1]);
+		addBM(number);
+		infUpdate();
+		
+		if (monsters[0] >= 1){
+			document.getElementById('MPSString').style.display = "inline";
 		};
 	};
 };
