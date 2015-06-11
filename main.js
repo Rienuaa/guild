@@ -12,52 +12,33 @@ var agents = [0, 1000, 0];
 var monsters = [0, 1000, 0];
 
 var maxAgents = 0;
-/*
-//hides all elements
-var myClasses = document.querySelectorAll('.my-class'),
-    i = 0,
-    l = myClasses.length;
 
-for (i; i < l; i++) {
-    myClasses[i].style.display = 'none';
-}
-
-//shows elements that are shown at the start
-function showInitialElements(){
-	document.getElementById('').style.display = "inline";
-	document.getElementById('').style.display = "block";
-	
-	
-	
-	
-	
-};
-*/
-
-function hideElements(){
-	document.getElementById('GPSString').style.display = "none";
-	document.getElementById('inf').style.display = "none";
+window.onload = function(){
+	try {
+		var spans = document.getElementsByTagName('span');
+		for (i in spans ){
+			spans[i].style.display = "none";
+		};
+		var buttons = document.getElementsByTagName('button');
+		for (i in buttons ){
+			buttons[i].style.display = "none";
+		};
+	}catch(TypeError){};
 	document.getElementById('ADVButton').style.display = "none";
-	document.getElementById('INFString').style.display = "none";
-	document.getElementById('IPSString').style.display = "none";
-	document.getElementById('ADVString').style.display = "none";
-	document.getElementById('GHString').style.display = "none";
 	document.getElementById('LHButton').style.display = "none";
-	document.getElementById('LHString').style.display = "none";
-	document.getElementById('AString').style.display = "none";
 	document.getElementById('AButton').style.display = "none";
-	document.getElementById('PString').style.display = "none";
 	document.getElementById('PButton').style.display = "none";
 	document.getElementById('MButton').style.display = "none";
-	document.getElementById('MPSString').style.display = "none";
-	document.getElementById('MString').style.display = "none";
+	document.getElementById('gold').style.display = "inline";
 
-	
+	document.getElementById('GHButton').style.display = "inline";
+	goldUpdate();
+	infUpdate();
 };
 
 function goldUpdate(){
-	document.getElementById('gold').innerHTML = gold;
-	document.getElementById('GPS').innerHTML = GPS;
+	document.getElementById('gold').innerHTML = "Gold: " + gold;
+	document.getElementById('GPS').innerHTML = "You earn " + GPS + " gold per second.";
 };
 function infUpdate(){
 	document.getElementById('inf').innerHTML = inf;
@@ -91,22 +72,30 @@ function addGH(number){
 	guildHouses[0] = guildHouses[0] + number;
 	addIPS(number);
 	document.getElementById('guildHouses').innerHTML = guildHouses[0];
+	infUpdate();
+	goldUpdate();
 };
 function addLH(number){
 	largeHalls[0] = largeHalls[0] + number;
 	guildHouses[2] = guildHouses[2] + number;
 	document.getElementById('largeHalls').innerHTML = largeHalls[0];
+	infUpdate();
+	goldUpdate();
 };
 //col 2
 function addADV(number){
 	adventurers[0] = adventurers[0] + number;
 	addGPS(number);
 	document.getElementById('adventurers').innerHTML = adventurers[0];
+	infUpdate();
+	goldUpdate();
 };
 function addParty(number){
 	parties[0] = parties[0] + number;
 	adventurers[2] = adventurers[2] + number;
 	document.getElementById('parties').innerHTML = parties[0];
+	infUpdate();
+	goldUpdate();
 };
 //col 3
 function addAgent(number){
@@ -114,6 +103,8 @@ function addAgent(number){
 	adventurers[2] = adventurers[2] + number;
 	document.getElementById('agents').innerHTML = agents[0];
 	document.getElementById('APS').innerHTML = agents[0];
+	infUpdate();
+	goldUpdate();
 };
 //col 4
 function addBM(number){
@@ -121,9 +112,11 @@ function addBM(number){
 	adventurers[2] = adventurers[2] - number;
 	document.getElementById('monsters').innerHTML = monsters[0];
 	document.getElementById('MPS').innerHTML = monsters[0];
+	infUpdate();
+	goldUpdate();
 };
 
-
+//FUNCTIONS TO BUY THE BUILDINGS
 function buyGuildHouse(number){
 	if (gold >= (number * guildHouses[1])){
 		addGH(number);
@@ -132,10 +125,13 @@ function buyGuildHouse(number){
 		
 		if (guildHouses[0] >= 1) {
 			document.getElementById('inf').style.display = "inline";
+			document.getElementById('IPS').style.display = "inline";
+			document.getElementById('guildHouses').style.display = "inline";
 			document.getElementById('GHString').style.display = "inline";
 			document.getElementById('ADVButton').style.display = "block";
 			document.getElementById('INFString').style.display = "inline";
 			document.getElementById('IPSString').style.display = "inline";
+			document.getElementById('adventurers').style.display = "inline";
 			
 		};
 	};	
@@ -148,9 +144,12 @@ function buyLargeHall(number){
 		
 		if (largeHalls[0] >= 1) {
 			maxAgents = maxAgents + 1;
+			document.getElementById('largeHalls').style.display = "inline";
 			document.getElementById('LHString').style.display = "inline";
 			document.getElementById('AString').style.display = "inline";
 			document.getElementById('AButton').style.display = "inline";
+			document.getElementById('agents').style.display = "inline";
+			document.getElementById('maxAgents').style.display = "inline";
 			document.getElementById('maxAgents').innerHTML = maxAgents;
 		};
 	};	
@@ -164,7 +163,8 @@ function buyAdventurer(number){
 		
 		if (adventurers[0] >= 1){
 			document.getElementById('ADVString').style.display = "inline";
-			document.getElementById('GPSString').style.display = "inline";
+			document.getElementById('GPS').style.display = "inline";
+			document.getElementById('GPS').style.display = "inline";
 			if (adventurers[0] >= 10){
 				document.getElementById('LHButton').style.display = "inline";
 			};
@@ -225,7 +225,6 @@ function click(number){
 
 //initializes everything, makes sure all variables are properly done
 function START(){
-	hideElements();
 	click(0);
 };
 
