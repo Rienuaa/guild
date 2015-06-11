@@ -53,6 +53,15 @@ function hideElements(){
 	
 };
 
+function goldUpdate(){
+	document.getElementById('gold').innerHTML = gold;
+	document.getElementById('GPS').innerHTML = GPS;
+};
+function infUpdate(){
+	document.getElementById('inf').innerHTML = inf;
+	document.getElementById('IPS').innerHTML = IPS;
+};
+
 //functions to pay resources - ALL CHECKING IS DONE INSIDE OF THE CALL
 //THIS DOES NOT CHECK IF RESOURCES ARE AVAILABLE
 function payGold(number){
@@ -61,6 +70,16 @@ function payGold(number){
 };
 function payInf(number){
 	inf = inf - number;
+	infUpdate();
+};
+
+//functions to add or remove (put negative in to remove) resources per second
+function addGPS(number){
+	GPS = GPS + number;
+	goldUpdate();
+};
+function addIPS(number){
+	IPS = IPS + number;
 	infUpdate();
 };
 
@@ -83,7 +102,7 @@ function addADV(number){
 	document.getElementById('adventurers').innerHTML = adventurers[0];
 };
 function addParty(number){
-	parties = parties + number;
+	parties[0] = parties[0] + number;
 	adventurers[2] = adventurers[2] + number;
 	document.getElementById('parties').innerHTML = parties[0];
 };
@@ -94,16 +113,8 @@ function addAgent(number){
 	document.getElementById('agents').innerHTML = agents[0];
 };
 
-function goldUpdate(){
-	document.getElementById('gold').innerHTML = gold;
-	document.getElementById('GPS').innerHTML = GPS;
-};
-function infUpdate(){
-	document.getElementById('inf').innerHTML = inf;
-	document.getElementById('IPS').innerHTML = IPS;
-};
 
-function buyGuildHouses(number){
+function buyGuildHouse(number){
 	if (gold >= (number * guildHouses[1])){
 		addGH(number);
 		payGold((guildHouses[1] * number));
@@ -120,7 +131,7 @@ function buyGuildHouses(number){
 	};	
 };
 function buyLargeHall(number){
-	if (gold >= (number * [1])){
+	if (gold >= (number * largeHalls[1])){
 		addLH(number);
 		payGold((largeHall[1] * number));
 		goldUpdate();
@@ -136,8 +147,8 @@ function buyLargeHall(number){
 };
 
 function buyAdventurer(number){
-	if (inf >= (number * adventurer[1])){
-		payInf((number * adventurer[1]));
+	if (inf >= (number * adventurers[1])){
+		payInf((number * adventurers[1]));
 		addADV(number);
 		infUpdate();
 		
@@ -165,7 +176,7 @@ function buyParty(number){
 };
 
 function buyAgent(number){
-	if ((agents + number) <= maxAgents){
+	if ((agents[0] + number) <= maxAgents){
 		if (gold >= (agent[1] * number)){
 			payGold((agent[1] * number));
 			addAgent(number);
@@ -182,13 +193,13 @@ function buyAgent(number){
 };
 
 function click(number){
-	addGH(guildHouses[2]) * number);
-	addLH(largeHalls[2]) * number);
-	addADV(adventurers[2]) * number);
+	addGH((guildHouses[2]) * number);
+	addLH((largeHalls[2]) * number);
+	addADV((adventurers[2]) * number);
 	addParty((parties[2]) * number);
 	addAgent((agents[2]) * number);
-	gold = ((gold + GPS) * number);
-	inf = ((inf + IPS) * number);
+	gold = gold + (GPS * number);
+	inf = inf + (IPS * number);
 };
 
 
