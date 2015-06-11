@@ -10,6 +10,8 @@ var adventurers = [0, 10, 0];
 var parties = [0, 100, 0];
 var agents = [0, 1000, 0];
 var monsters = [0, 100, 0];
+
+var maxAgents = 0;
 /*
 //hides all elements
 var myClasses = document.querySelectorAll('.my-class'),
@@ -133,7 +135,7 @@ function buyGuildHouse(number){
 function buyLargeHall(number){
 	if (gold >= (number * largeHalls[1])){
 		addLH(number);
-		payGold((largeHall[1] * number));
+		payGold((largeHalls[1] * number));
 		goldUpdate();
 		
 		if (largeHalls[0] >= 1) {
@@ -163,8 +165,8 @@ function buyAdventurer(number){
 };
 
 function buyParty(number){
-	if (inf >= (number * party[1])){
-		payInf((number * party[1]));
+	if (inf >= (number * parties[1])){
+		payInf((number * parties[1]));
 		addParty(number);
 		infUpdate();
 		
