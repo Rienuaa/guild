@@ -2,23 +2,36 @@ var gold = 10;
 var GPS = 0;
 var inf = 0;
 var IPS = 0;
-var APS = 0;
-var MPS = 0;
-var guildHouses = 0;
-var guildHousesCost = 10;//gold
-var largeHalls = 0;
-var largeHallCost = 100;//gold
-var adventurers = 0;
-var adventurerCost = 10;//inf
-var parties = 0;
-var partyCost = 100;//inf
-var agents = 0;
-var maxAgents = 0;
-var agentCost = 1000;//gold
-var monsters = 0;
-var monsterCost = 100; //gold
 
-//hides elements
+//name = [number, cost, per second]
+var guildHouses = [0, 10, 0];
+var largeHalls = [0, 1000, 0];
+var adventurers = [0, 10, 0];
+var parties = [0, 100, 0];
+var agents = [0, 1000, 0];
+var monsters = [0, 100, 0];
+/*
+//hides all elements
+var myClasses = document.querySelectorAll('.my-class'),
+    i = 0,
+    l = myClasses.length;
+
+for (i; i < l; i++) {
+    myClasses[i].style.display = 'none';
+}
+
+//shows elements that are shown at the start
+function showInitialElements(){
+	document.getElementById('').style.display = "inline";
+	document.getElementById('').style.display = "block";
+	
+	
+	
+	
+	
+};
+*/
+
 function hideElements(){
 	document.getElementById('GPSString').style.display = "none";
 	document.getElementById('inf').style.display = "none";
@@ -40,18 +53,6 @@ function hideElements(){
 	
 };
 
-function goldClick(number){
-	gold = gold + number;
-	goldUpdate();
-};
-function infClick(number){
-	inf = inf + number;
-	infUpdate();
-};
-function agentClick(number){
-	adventurers = adventurers + number;
-	advUpdate;
-};
 //functions to pay resources - ALL CHECKING IS DONE INSIDE OF THE CALL
 //THIS DOES NOT CHECK IF RESOURCES ARE AVAILABLE
 function payGold(number){
@@ -63,46 +64,36 @@ function payInf(number){
 	infUpdate();
 };
 
-//functions to add or remove (put negative in to remove) resources per second
-function addGPS(number){
-	GPS = GPS + number;
-	goldUpdate();
-};
-function addIPS(number){
-	IPS = IPS + number;
-	infUpdate();
-};
-
-//functions to add buildings
+//functions to buy buildings
 //col 1
 function addGH(number){
-	guildHouses = guildHouses + number;
+	guildHouses[0] = guildHouses[0] + number;
 	addIPS(number);
-	document.getElementById('guildHouses').innerHTML = guildHouses;
+	document.getElementById('guildHouses').innerHTML = guildHouses[0];
 };
 function addLH(number){
-	largeHalls = largeHalls + number;
-	addIPS((number * 10));
-	document.getElementById('largeHalls').innerHTML = largeHalls;
+	largeHalls[0] = largeHalls[0] + number;
+	guildHouses[2] = guildHouses[2] + number;
+	document.getElementById('largeHalls').innerHTML = largeHalls[0];
 };
 //col 2
 function addADV(number){
-	adventurers = adventurers + number;
+	adventurers[0] = adventurers[0] + number;
 	addGPS(number);
-	document.getElementById('adventurers').innerHTML = adventurers;
+	document.getElementById('adventurers').innerHTML = adventurers[0];
 };
 function addParty(number){
 	parties = parties + number;
-	addGPS((number * 10));
-	document.getElementById('parties').innerHTML = parties;
+	adventurers[2] = adventurers[2] + number;
+	document.getElementById('parties').innerHTML = parties[0];
 };
 //col 3
 function addAgent(number){
-	agents = agents + number;
-	document.getElementById('agents').innerHTML = agents;
+	agents[0] = agents[0] + number;
+	//AGENTS CURRENTLY DO NOTHING
+	document.getElementById('agents').innerHTML = agents[0];
 };
 
-//use to make sure resources are updated
 function goldUpdate(){
 	document.getElementById('gold').innerHTML = gold;
 	document.getElementById('GPS').innerHTML = GPS;
@@ -111,18 +102,14 @@ function infUpdate(){
 	document.getElementById('inf').innerHTML = inf;
 	document.getElementById('IPS').innerHTML = IPS;
 };
-function advUpdate(){
-	document.getElementById("adventurers").innerHTML = adventurers;
-	document.getElementById("APS").innerHTML = APS;
-};
 
 function buyGuildHouses(number){
-	if (gold >= (number * guildHousesCost)){
+	if (gold >= (number * guildHouses[1])){
 		addGH(number);
-		payGold((guildHousesCost * number));
+		payGold((guildHouses[1] * number));
 		goldUpdate();
 		
-		if (guildHouses >= 1) {
+		if (guildHouses[0] >= 1) {
 			document.getElementById('inf').style.display = "inline";
 			document.getElementById('GHString').style.display = "inline";
 			document.getElementById('ADVButton').style.display = "block";
@@ -133,12 +120,12 @@ function buyGuildHouses(number){
 	};	
 };
 function buyLargeHall(number){
-	if (gold >= (number * largeHallCost)){
+	if (gold >= (number * [1])){
 		addLH(number);
-		payGold((largeHallCost * number));
+		payGold((largeHall[1] * number));
 		goldUpdate();
 		
-		if (largeHalls >= 1) {
+		if (largeHalls[0] >= 1) {
 			maxAgents = maxAgents + 1;
 			document.getElementById('LHString').style.display = "inline";
 			document.getElementById('AString').style.display = "inline";
@@ -149,15 +136,15 @@ function buyLargeHall(number){
 };
 
 function buyAdventurer(number){
-	if (inf >= (number * adventurerCost)){
-		payInf((number * adventurerCost));
+	if (inf >= (number * adventurer[1])){
+		payInf((number * adventurer[1]));
 		addADV(number);
 		infUpdate();
 		
-		if (adventurers >= 1){
+		if (adventurers[0] >= 1){
 			document.getElementById('ADVString').style.display = "inline";
 			document.getElementById('GPSString').style.display = "inline";
-			if (adventurers >= 10){
+			if (adventurers[0] >= 10){
 				document.getElementById('LHButton').style.display = "inline";
 			};
 		};
@@ -165,12 +152,12 @@ function buyAdventurer(number){
 };
 
 function buyParty(number){
-	if (inf >= (number * partyCost)){
-		payInf((number * partyCost));
+	if (inf >= (number * party[1])){
+		payInf((number * party[1]));
 		addParty(number);
 		infUpdate();
 		
-		if (parties >= 1){
+		if (parties[0] >= 1){
 			//placeholder
 			
 		};
@@ -179,12 +166,12 @@ function buyParty(number){
 
 function buyAgent(number){
 	if ((agents + number) <= maxAgents){
-		if (gold >= (agentCost * number)){
-			payGold((agentCost * number));
+		if (gold >= (agent[1] * number)){
+			payGold((agent[1] * number));
 			addAgent(number);
 			goldUpdate();
 			
-			if (agents >= 1){
+			if (agents[0] >= 1){
 				document.getElementById('MString').style.display = "inline";
 				document.getElementById('MPSBString').style.display = "inline";
 				document.getElementById('BMButton').style.display = "inline";
@@ -194,24 +181,27 @@ function buyAgent(number){
 	};
 };
 
+function click(number){
+	addGH(guildHouses[2]) * number);
+	addLH(largeHalls[2]) * number);
+	addADV(adventurers[2]) * number);
+	addParty((parties[2]) * number);
+	addAgent((agents[2]) * number);
+	gold = ((gold + GPS) * number);
+	inf = ((inf + IPS) * number);
+};
 
 
 //initializes everything, makes sure all variables are properly done
 function START(){
 	hideElements();
-	goldClick(0);
-	infClick(0);
-	agentClick(0);
-	//advClick(0);
+	click(0);
 };
 
 START();
 //game loop
 window.setInterval(function(){
-	goldClick(GPS);
-	infClick(IPS);
-	agentClick(APS);
-	//advClick(MPS);
+	click(1);
 	goldUpdate();
 	infUpdate();
 	
