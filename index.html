@@ -9,23 +9,27 @@
 		<p>An incremental game, made by Ellen Cantor, based off of the book Mogworld by Yahtzee Crosshaw.</p>
 		
 		<div class="section group">
-			<div class = "col span2" id = "COLUMN 1">
+			<div class="col span1" id = "COLUMN 1">
 				<span id = "GString">Gold: <span id = "GOLD"></span><br />
-				You earn <span id = "GPS">0</span> gold per second.</span><br />
-				<div class = "col span1" id = "SUB COLUMN 1">
-					<button id = "unit1Button" onClick = buyUnit1(1)>HIRE ADVENTURER</button><br />
-				</div>
-				<div class = "col span1" id = "SUB COLUMN 2">
-					<span id = "unit2String"> 
-				</div>
+				Gold per second: <span id = "GPS">0</span></span><br />
+				<br /><font size = 2><span id = "unit1String">Adventurers cost 10 gold each. Adventurers earn 2 gold per second. You earn <span id = "unit1PS">0</span> per second.</span></font>
 			</div>
 			
-			<div class="col span1" id = "COLUMN 2">
-				COL 2 TEMP
+			<div class = "col span1" id = "COLUMN ">
+				<br />
+				<button id = "unit1Button" onClick = buyUnit1(1)>HIRE ADVENTURER</button><br />
+				<button id = "unit2Button" onClick = buyUnit2(1)>HIRE PARTY</button><br />
+				<button id = "unit3Button" onClick = buyUnit3(1)>BUY GUILD HOUSE</button><br />
 			</div>
+			
+			
 			
 			<div class="col span1" id = "COLUMN 3">
 				COL 3 TEMP
+			</div>
+			
+			<div class="col span1" id = "COLUMN 4">
+				COL 4 TEMP
 			</div>
 		</div>
 <script type="text/javascript" src="main.js"></script></body></html>
