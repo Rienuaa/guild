@@ -1,5 +1,5 @@
-# guild
-The Adventurer's Guild! A Rube-goldberg-esque incremental, made by Ellen Cantor, using the ideas from Mogworld, by Yahtzee Crosshaw.
+# The Adventurer's Guild!
+An incremental, made by Ellen Cantor, using the ideas from Mogworld, by Yahtzee Crosshaw.
 
 Whew, what a mouthful.
 
