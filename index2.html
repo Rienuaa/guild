@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="materialz-master/material-elements.css" />
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+	
+	</head>
+	<body>
+		<img src = "assets/sword2.jpg"></img><b><font size = "6">THE ADVENTURER'S GUILD</font></b><img src = "assets/sword.jpg"></img>
+		<p>A Rube-Goldberg-esque incremental game, made by Ellen Cantor, based off of the book Mogworld by Yahtzee Crosshaw.</p>
+		
+		<div class="section group">
+			<div class="col span1">
+				<span id = "gold"></span><br />
+				<span id = "GPS"></span><br />
+				<button id = "GHButton" onClick = "buyGuildHouse(1)">BUY GUILD HOUSE (Gold: 10)</button><br />
+				<span id = "GHString">Guild Houses: </span><span id = "guildHouses"></span><span id = "GHPS"></span><br />
+				<button id = "LHButton" onClick = "buyLargeHall(1)">BUY LARGE HALL (Gold: 1000)</button><br />
+				<span id = "LHString">Large Halls: <span id = "largeHalls"></span></span>
+			</div>
+			
+			<div class="col span1">
+				<span id = "INFString">Influence: </span><span id = "inf"></span><br />
+				<span id = "IPSString">You earn <span id = "IPS"></span> influence per second.</span><br />
+				<button id = "ADVButton" onClick = "buyAdventurer(1)">HIRE ADVENTURER (Inf: 10)</button>
+				<span id = "ADVString">Adventurers: <span id = "adventurers"></span></span>
+				<button id = "PButton" onClick = "buyParty(1)">HIRE PARTY (Gold: 100)</button>
+				<span id = "PString">Parties: <span id = "parties"></span></span><br />
+			</div>
+			
+			<div class="col span1">
+				<span id = "AString">Agents: <span id = "agents"></span><br />You can hire <span id = "maxAgents">0</span> agents.<br />
+				<span id = "APSString">Agents hire <span id = "APS"></span> adventurers per second.</span><br />
+				<button id = "AButton" onClick = "buyAgent(1)">HIRE AGENT (Gold: 1000)</button>
+			</div>
+			
+			<div class="col span1">
+				<span id = "MString">Monsters: <span id = "monsters"></span><br />
+				<span id = "MPSString">Monsters kill <span id = "MPS"></span> adventurers per second.</span></span>
+				<button id = "MButton" onClick = "buyBasicMonster(1)">ATTRACT BASIC MONSTER (Inf: 1000)</button>
+			</div>
+		</div>
+<script type="text/javascript" src="main.js"></script></body></html>
