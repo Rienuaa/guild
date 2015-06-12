@@ -13,29 +13,6 @@ var monsters = [0, 1000, 0];
 
 var maxAgents = 0;
 
-window.onload = function(){
-	try {
-		var spans = document.getElementsByTagName('span');
-		for (i in spans ){
-			spans[i].style.display = "none";
-		};
-		var buttons = document.getElementsByTagName('button');
-		for (i in buttons ){
-			buttons[i].style.display = "none";
-		};
-	}catch(TypeError){};
-	document.getElementById('ADVButton').style.display = "none";
-	document.getElementById('LHButton').style.display = "none";
-	document.getElementById('AButton').style.display = "none";
-	document.getElementById('PButton').style.display = "none";
-	document.getElementById('MButton').style.display = "none";
-	document.getElementById('gold').style.display = "inline";
-
-	document.getElementById('GHButton').style.display = "inline";
-	goldUpdate();
-	infUpdate();
-};
-
 function goldUpdate(){
 	document.getElementById('gold').innerHTML = "Gold: " + gold;
 	document.getElementById('GPS').innerHTML = "You earn " + GPS + " gold per second.";
@@ -234,6 +211,21 @@ function click(number){
 //initializes everything, makes sure all variables are properly done
 function START(){
 	click(0);
+	try {
+		var spans = document.getElementsByTagName('span');
+		for (i in spans ){
+			spans[i].style.display = "none";
+		};
+	}catch(TypeError){};
+	document.getElementById('ADVButton').style.display = "none";
+	document.getElementById('LHButton').style.display = "none";
+	document.getElementById('AButton').style.display = "none";
+	document.getElementById('PButton').style.display = "none";
+	document.getElementById('MButton').style.display = "none";
+	document.getElementById('gold').style.display = "inline";
+	document.getElementById('GHButton').style.display = "inline";
+	goldUpdate();
+	infUpdate();
 };
 
 START();
