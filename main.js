@@ -46,8 +46,8 @@ function addIPS(number){
 function buyUnit1(number){
 	if (gold >= (number * unit1[2])){
 		unit1[0] = unit1[0] + number;
-		payGold((unit1[2] * number));
 		document.getElementById('unit1PS').innerHTML = (unit2[0] * unit2[1]);
+		payGold((unit1[2] * number));
 		goldUpdate();
 		//shows next upgrade
 		if (unit1[0] >= 1) {
@@ -60,7 +60,7 @@ function buyUnit2(number){
 	if (gold >= (number * unit2[2])){
 		unit2[0] = unit2[0] + number;
 		payGold((unit2[2] * number));
-		updateUnits();
+		document.getElementById('unit2PS').innerHTML = (unit3[0] * unit3[1]);
 		goldUpdate();
 		//shows next upgrade
 		if (unit2[0] >= 1) {
