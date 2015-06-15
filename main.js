@@ -3,6 +3,10 @@ var GPS = 0;
 var inf = 0;
 var IPS = 0;
 
+//THIS IS NEEDED TO DO GOLD REPORTING
+//PLEASE HELP D:
+
+
 //name = [number, amount they produce per second, cost in gold, cost in inf, cost of previous unit]
 var unit7 = [0, 7, 10000000, 1]; //KINGDOMS
 var unit6 = [0, 6, 1000000, 1]; //TERRITORIES

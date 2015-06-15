@@ -1,4 +1,7 @@
 
+.button {
+	width: 200px;
+}
 /*  SECTIONS  */
 .section {
 	clear: both;
@@ -19,12 +22,12 @@
 .group:after { content:""; display:table; }
 .group:after { clear:both;}
 .group { zoom:1; /* For IE 6/7 */ }
-/*  GRID OF THREE  */
+/* four across */
 .span4 { width: 100%; }
 .span3 { width: 74.6%; }
 .span2 { width: 49.2%; }
 .span1 { width: 23.8%; }
-/*  GO FULL WIDTH BELOW 480 PIXELS */
+/*  GO FULL WIDTH BELOW 480 PIXELS - code shamelessly stolen */
 @media only screen and (max-width: 480px) {
 	.col {  margin: 1% 0 1% 0%; }
 	.span4, .span3, .span2, .span1 { width: 100%; }
