@@ -77,6 +77,7 @@ function buyUnit3(number){
 	if (gold >= (number * unit3[2])){
 		unit3[0] = unit3[0] + number;
 		payGold((unit3[2] * number));
+		
 		updateUnits();
 		goldUpdate();
 		//shows next upgrade
@@ -143,7 +144,9 @@ function updateUnits(){
 	document.getElementById('unit1PS').innerHTML = (unit2[0] * unit2[1]);
 	document.getElementById('unit2PS').innerHTML = (unit3[0] * unit3[1]);
 	document.getElementById('unit3PS').innerHTML = (unit4[0] * unit4[1]);
-	//document.getElementById('unit4PS').innerHTML = (unit5[0] * unit5[2]);
+	document.getElementById('unit4PS').innerHTML = (unit5[0] * unit5[1]);
+	document.getElementById('unit5PS').innerHTML = (unit6[0] * unit6[1]);
+	document.getElementById('unit6PS').innerHTML = (unit7[0] * unit7[1]);
 };
 
 //THE LOOP OF THE GAME ITERATES THROUGH THIS ONCE PER SECOND
