@@ -56,7 +56,7 @@ function buyUnit1(number){
 		//shows next upgrade
 		if (unit1[0] >= 1) {
 			document.getElementById('unit2String').style.visibility = "visible";
-			
+			document.getElementById('unit2Button').style.visibility = "visible";
 		};
 	};	
 };
@@ -69,7 +69,7 @@ function buyUnit2(number){
 		//shows next upgrade
 		if (unit2[0] >= 1) {
 			document.getElementById('unit3String').style.visibility = "visible";
-			
+			document.getElementById('unit3Button').style.visibility = "visible";
 		};
 	};	
 };
@@ -83,7 +83,7 @@ function buyUnit3(number){
 		//shows next upgrade
 		if (unit3[0] >= 1) {
 			document.getElementById('unit4String').style.visibility = "visible";
-			
+			document.getElementById('unit4Button').style.visibility = "visible";
 		};
 	};	
 };
@@ -96,7 +96,7 @@ function buyUnit4(number){
 		//shows next upgrade
 		if (unit4[0] >= 1) {
 			document.getElementById('unit5String').style.visibility = "visible";
-			
+			document.getElementById('unit5Button').style.visibility = "visible";
 		};
 	};	
 };
@@ -109,7 +109,7 @@ function buyUnit5(number){
 		//shows next upgrade
 		if (unit5[0] >= 1) {
 			document.getElementById('unit6String').style.visibility = "visible";
-			
+			document.getElementById('unit6Button').style.visibility = "visible";
 		};
 	};	
 };
@@ -122,6 +122,7 @@ function buyUnit6(number){
 		//shows next upgrade
 		if (unit6[0] >= 1) {
 			document.getElementById('unit7String').style.visibility = "visible";
+			document.getElementById('unit7Button').style.visibility = "visible";
 			
 		};
 	};	
@@ -177,6 +178,12 @@ function START(){
 	document.getElementById('unit5String').style.visibility = "hidden";
 	document.getElementById('unit6String').style.visibility = "hidden";
 	document.getElementById('unit7String').style.visibility = "hidden";
+	document.getElementById('unit2Button').style.visibility = "hidden";
+	document.getElementById('unit3Button').style.visibility = "hidden";
+	document.getElementById('unit4Button').style.visibility = "hidden";
+	document.getElementById('unit5Button').style.visibility = "hidden";
+	document.getElementById('unit6Button').style.visibility = "hidden";
+	document.getElementById('unit7Button').style.visibility = "hidden";
 };
 
 START();
