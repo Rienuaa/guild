@@ -172,7 +172,7 @@ function click(number){
 
 var ctx = document.getElementById("myChart").getContext("2d");
 var data = {
-labels: ["Territories", "Large Halls", "Guild Halls", "Guild Houses", "Parties", "Adventurers", "GPS"],
+labels: ["Kingdoms", "Territories", "Large Halls", "Guild Halls", "Guild Houses", "Parties", "Adventurers", "GPS"],
 datasets: [
 		{
 			label: "Units Per Second",
@@ -182,21 +182,39 @@ datasets: [
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [(unit7[0] * unit7[1]), (unit6[0] * unit6[1]), (unit5[0] * unit5[1]), (unit4[0] * unit4[1]), (unit3[0] * unit3[1]), (unit2[0] * unit2[1]), GPS]
-		}
+			data: [0, (unit7[0] * unit7[1]), (unit6[0] * unit6[1]), (unit5[0] * unit5[1]), (unit4[0] * unit4[1]), (unit3[0] * unit3[1]), (unit2[0] * unit2[1]), GPS]
+		},
+		{
+            label: "Units",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [unit7[0], unit6[0], unit5[0], unit4[0], unit3[0], unit2[0], unit1[0], GOLD]
+        }
 	]
 };
 var myLineChart = new Chart(ctx).Line(data);
 
 
 function updateChart(){
-	myLineChart.datasets[0].points[0].value = (unit7[0] * unit7[1]);
-	myLineChart.datasets[0].points[1].value = (unit6[0] * unit6[1]);
-	myLineChart.datasets[0].points[2].value = (unit5[0] * unit5[1]);
-	myLineChart.datasets[0].points[3].value = (unit4[0] * unit4[1]);
-	myLineChart.datasets[0].points[4].value = (unit3[0] * unit4[1]);
-	myLineChart.datasets[0].points[5].value = (unit2[0] * unit4[1]);
-	myLineChart.datasets[0].points[6].value = GPS;
+	myLineChart.datasets[0].points[1].value = (unit7[0] * unit7[1]);
+	myLineChart.datasets[0].points[2].value = (unit6[0] * unit6[1]);
+	myLineChart.datasets[0].points[3].value = (unit5[0] * unit5[1]);
+	myLineChart.datasets[0].points[4].value = (unit4[0] * unit4[1]);
+	myLineChart.datasets[0].points[5].value = (unit3[0] * unit4[1]);
+	myLineChart.datasets[0].points[6].value = (unit2[0] * unit4[1]);
+	myLineChart.datasets[0].points[7].value = GPS;
+	myLineChart.datasets[1].points[0].value = (unit7[0]);
+	myLineChart.datasets[1].points[1].value = (unit6[0]);
+	myLineChart.datasets[1].points[2].value = (unit5[0]);
+	myLineChart.datasets[1].points[3].value = (unit4[0]);
+	myLineChart.datasets[1].points[4].value = (unit3[0]);
+	myLineChart.datasets[1].points[5].value = (unit2[0]);
+	myLineChart.datasets[1].points[6].value = (unit1[0]);
+	myLineChart.datasets[1].points[7].value = GOLD;
 	myLineChart.update();
 };
 
