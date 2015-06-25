@@ -5,13 +5,15 @@ var IPS = 0;
 
 
 //name = [number, amount they produce per second, cost in gold, cost in inf, cost of previous unit]
-var unit7 = [0, 7, 10000000, 1]; //KINGDOMS
-var unit6 = [0, 6, 1000000, 1]; //TERRITORIES
-var unit5 = [0, 5, 100000, 1]; //LARGE HALLS
-var unit4 = [0, 4, 10000, 1]; //GUILD HALLS
-var unit3 = [0, 3, 1000, 1]; //GUILD HOUSES
-var unit2 = [0, 2, 100, 1]; //PARTIES
-var unit1 = [0, 1, 10, 1]; //ADVENTURERS
+var unit1 = [0, 1, 10, 0, 1]; //ADVENTURERS
+var unit2 = [0, 2, 100, 10, 1]; //PARTIES
+var unit3 = [0, 3, 1000, 100, 1]; //GUILD HOUSES
+var unit4 = [0, 4, 10000, 1000, 1]; //GUILD HALLS
+var unit5 = [0, 5, 100000, 10000, 1]; //LARGE HALLS
+var unit6 = [0, 6, 1000000, 100000, 1]; //TERRITORIES
+var unit7 = [0, 7, 10000000, 1000000, 1]; //KINGDOMS
+
+
 
 function goldUpdate(){
 	document.getElementById('GOLD').innerHTML = gold;
@@ -60,8 +62,9 @@ function buyUnit1(number){
 	};	
 };
 function buyUnit2(number){
-	if (gold >= (number * unit2[2])){
+	if (gold >= (number * unit2[2]) && ((number * unit2[3]) >= (number * unit1[0]))){
 		unit2[0] = unit2[0] + number;
+		unit1[0] = unit1[0] - (number * unit2[3]);
 		payGold((unit2[2] * number));
 		document.getElementById('unit2PS').innerHTML = (unit3[0] * unit3[1]);
 		goldUpdate();
@@ -74,8 +77,9 @@ function buyUnit2(number){
 	};	
 };
 function buyUnit3(number){
-	if (gold >= (number * unit3[2])){
+	if (gold >= (number * unit3[2]) && ((number * unit3[3]) >= (number * unit2[0]))){
 		unit3[0] = unit3[0] + number;
+		unit2[0] = unit2[0] - (number * unit3[3]);
 		payGold((unit3[2] * number));
 		
 		updateUnits();
@@ -89,8 +93,9 @@ function buyUnit3(number){
 	};	
 };
 function buyUnit4(number){
-	if (gold >= (number * unit4[2])){
+	if (gold >= (number * unit4[2]) && ((number * unit4[3]) >= (number * unit3[0]))){
 		unit4[0] = unit4[0] + number;
+		unit3[0] = unit3[0] - (number * unit4[3]);
 		payGold((unit4[2] * number));
 		updateUnits();
 		goldUpdate();
@@ -103,8 +108,9 @@ function buyUnit4(number){
 	};	
 };
 function buyUnit5(number){
-	if (gold >= (number * unit5[2])){
+	if (gold >= (number * unit5[2]) && ((number * unit5[3]) >= (number * unit4[0]))){
 		unit5[0] = unit5[0] + number;
+		unit4[0] = unit4[0] - (number * unit5[3])
 		payGold((unit5[2] * number));
 		updateUnits();
 		goldUpdate();
@@ -117,8 +123,9 @@ function buyUnit5(number){
 	};	
 };
 function buyUnit6(number){
-	if (gold >= (number * unit6[2])){
+	if (gold >= (number * unit6[2]) && ((number * unit6[3]) >= (number * unit5[0]))){
 		unit6[0] = unit6[0] + number;
+		unit5[0] = unit5[0] - (number * unit6[3]);
 		payGold((unit6[2] * number));
 		updateUnits();
 		goldUpdate();
@@ -132,8 +139,9 @@ function buyUnit6(number){
 	};	
 };
 function buyUnit7(number){
-	if (gold >= (number * unit7[2])){
+	if (gold >= (number * unit7[2]) && ((number * unit7[3]) >= (number * unit6[0]))){
 		unit7[0] = unit7[0] + number;
+		unit6[0] = unit6[0] - (number * unit7[3]);
 		payGold((unit7[2] * number));
 		updateUnits();
 		goldUpdate();
