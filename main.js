@@ -62,7 +62,7 @@ function buyUnit1(number){
 	};	
 };
 function buyUnit2(number){
-	if (gold >= (number * unit2[2]) && ((number * unit2[3]) >= (number * unit1[0]))){
+	if ((gold >= (number * unit2[2])) && ((number * unit2[3]) >= (number * unit1[0]))){
 		unit2[0] = unit2[0] + number;
 		unit1[0] = unit1[0] - (number * unit2[3]);
 		payGold((unit2[2] * number));
