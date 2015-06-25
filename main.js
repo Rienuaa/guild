@@ -55,7 +55,7 @@ function buyUnit1(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit1[0] >= 1) {
-			
+			document.getElementById('unit2String').style.visibility = "visible";
 			
 		};
 	};	
@@ -68,7 +68,7 @@ function buyUnit2(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit2[0] >= 1) {
-			
+			document.getElementById('unit3String').style.visibility = "visible";
 			
 		};
 	};	
@@ -82,7 +82,7 @@ function buyUnit3(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit3[0] >= 1) {
-			
+			document.getElementById('unit4String').style.visibility = "visible";
 			
 		};
 	};	
@@ -95,7 +95,7 @@ function buyUnit4(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit4[0] >= 1) {
-			
+			document.getElementById('unit5String').style.visibility = "visible";
 			
 		};
 	};	
@@ -108,7 +108,7 @@ function buyUnit5(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit5[0] >= 1) {
-			
+			document.getElementById('unit6String').style.visibility = "visible";
 			
 		};
 	};	
@@ -121,7 +121,7 @@ function buyUnit6(number){
 		goldUpdate();
 		//shows next upgrade
 		if (unit6[0] >= 1) {
-			
+			document.getElementById('unit7String').style.visibility = "visible";
 			
 		};
 	};	
@@ -170,6 +170,13 @@ function START(){
 	click(0);
 	goldUpdate();
 	//infUpdate();
+	
+	document.getElementById('unit2String').style.visibility = "hidden";
+	document.getElementById('unit3String').style.visibility = "hidden";
+	document.getElementById('unit4String').style.visibility = "hidden";
+	document.getElementById('unit5String').style.visibility = "hidden";
+	document.getElementById('unit6String').style.visibility = "hidden";
+	document.getElementById('unit7String').style.visibility = "hidden";
 };
 
 START();
