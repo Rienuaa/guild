@@ -192,7 +192,7 @@ datasets: [
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [unit7[0], unit6[0], unit5[0], unit4[0], unit3[0], unit2[0], unit1[0], GOLD]
+            data: [unit7[0], unit6[0], unit5[0], unit4[0], unit3[0], unit2[0], unit1[0], gold]
         }
 	]
 };
@@ -215,7 +215,7 @@ function updateChart(){
 	myLineChart.datasets[1].points[4].value = (unit3[0]);
 	myLineChart.datasets[1].points[5].value = (unit2[0]);
 	myLineChart.datasets[1].points[6].value = (unit1[0]);
-	myLineChart.datasets[1].points[7].value = GOLD;
+	myLineChart.datasets[1].points[7].value = gold;
 	myLineChart.update();
 };
 
