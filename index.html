@@ -9,9 +9,19 @@
 		<p>An incremental game, made by Ellen Cantor, based off of the book Mogworld by Yahtzee Crosshaw.</p>
 		
 		<div class="section group">
-			<div class="col span1" id = "COLUMN 1">
+			<div class = "col spanEXTRA" id = "COLUMN 1">
 				<span id = "GString">Gold: <span id = "GOLD"></span><br />
 				Gold per second: <span id = "GPS">0</span></span><br />
+				<button class = "button" id = "unit1Button" onClick = buyUnit1(1)>HIRE ADVENTURER</button><br />
+				<button class = "button" id = "unit2Button" onClick = buyUnit2(1)>HIRE PARTY</button><br />
+				<button class = "button" id = "unit3Button" onClick = buyUnit3(1)>BUY GUILD HOUSE</button><br />
+				<button class = "button" id = "unit4Button" onClick = buyUnit4(1)>BUY GUILD HALL</button><br />
+				<button class = "button" id = "unit5Button" onClick = buyUnit5(1)>BUY LARGE HALL</button><br />
+				<button class = "button" id = "unit6Button" onClick = buyUnit6(1)>BUY TERRITORY</button><br />
+				<button class = "button" id = "unit7Button" onClick = buyUnit7(1)>BUY KINGDOM</button><br />
+			</div>
+			<div class="col spanEXTRA2" id = "COLUMN 2">
+				<br /><br />
 				<br /><font size = 2><span id = "unit1String">Adventurers cost 10 gold each. They earn 1 gold per second. You earn <span id = "unit1PS">0</span> per second.</span>
 				<br /><br /><br /><span id = "unit2String">Parties cost 100 gold each. They hire 2 adventurers per second. You earn <span id = "unit2PS">0</span> per second.</span>
 				<br /><br /><br /><span id = "unit3String">Guild Houses cost 1,000 gold each. They hire 3 parties per second. You earn <span id = "unit3PS">0</span> per second.</span>
@@ -24,25 +34,10 @@
 				</font>
 			</div>
 			
-			<div class = "col span1" id = "COLUMN ">
-				<br /><br />
-				<button class = "button" id = "unit1Button" onClick = buyUnit1(1)>HIRE ADVENTURER</button><br />
-				<button class = "button" id = "unit2Button" onClick = buyUnit2(1)>HIRE PARTY</button><br />
-				<button class = "button" id = "unit3Button" onClick = buyUnit3(1)>BUY GUILD HOUSE</button><br />
-				<button class = "button" id = "unit4Button" onClick = buyUnit4(1)>BUY GUILD HALL</button><br />
-				<button class = "button" id = "unit5Button" onClick = buyUnit5(1)>BUY LARGE HALL</button><br />
-				<button class = "button" id = "unit6Button" onClick = buyUnit6(1)>BUY TERRITORY</button><br />
-				<button class = "button" id = "unit7Button" onClick = buyUnit7(1)>BUY KINGDOM</button><br />
+			
+			<div class="col span2" id = "COLUMN 3">
+				<canvas id="myChart" width="400" height="400"></canvas>
 			</div>
 			
-			
-			
-			<div class="col span1" id = "COLUMN 3">
-				COL 3 TEMP
-			</div>
-			
-			<div class="col span1" id = "COLUMN 4">
-				COL 4 TEMP
-			</div>
 		</div>
-<script type="text/javascript" src="main.js"></script></body></html>
+<script src="chart/Chart.js"></script><script type="text/javascript" src="main.js"></script></body></html>

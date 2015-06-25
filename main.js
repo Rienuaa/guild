@@ -3,9 +3,6 @@ var GPS = 0;
 var inf = 0;
 var IPS = 0;
 
-//THIS IS NEEDED TO DO GOLD REPORTING
-//PLEASE HELP D:
-
 
 //name = [number, amount they produce per second, cost in gold, cost in inf, cost of previous unit]
 var unit7 = [0, 7, 10000000, 1]; //KINGDOMS
@@ -40,6 +37,7 @@ function payInf(number){
 function addGPS(number){
 	GPS = GPS + number;
 	goldUpdate();
+	updateChart();
 };
 function addIPS(number){
 	IPS = IPS + number;
@@ -53,6 +51,7 @@ function buyUnit1(number){
 		document.getElementById('unit1PS').innerHTML = (unit2[0] * unit2[1]);
 		payGold((unit1[2] * number));
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit1[0] >= 1) {
 			document.getElementById('unit2String').style.visibility = "visible";
@@ -66,6 +65,7 @@ function buyUnit2(number){
 		payGold((unit2[2] * number));
 		document.getElementById('unit2PS').innerHTML = (unit3[0] * unit3[1]);
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit2[0] >= 1) {
 			document.getElementById('unit3String').style.visibility = "visible";
@@ -80,6 +80,7 @@ function buyUnit3(number){
 		
 		updateUnits();
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit3[0] >= 1) {
 			document.getElementById('unit4String').style.visibility = "visible";
@@ -93,6 +94,7 @@ function buyUnit4(number){
 		payGold((unit4[2] * number));
 		updateUnits();
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit4[0] >= 1) {
 			document.getElementById('unit5String').style.visibility = "visible";
@@ -106,6 +108,7 @@ function buyUnit5(number){
 		payGold((unit5[2] * number));
 		updateUnits();
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit5[0] >= 1) {
 			document.getElementById('unit6String').style.visibility = "visible";
@@ -119,6 +122,7 @@ function buyUnit6(number){
 		payGold((unit6[2] * number));
 		updateUnits();
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit6[0] >= 1) {
 			document.getElementById('unit7String').style.visibility = "visible";
@@ -133,6 +137,7 @@ function buyUnit7(number){
 		payGold((unit7[2] * number));
 		updateUnits();
 		goldUpdate();
+		updateChart();
 		//shows next upgrade
 		if (unit7[0] >= 1) {
 			/* NOT BEING USED
@@ -165,6 +170,35 @@ function click(number){
 	updateUnits();
 };
 
+var ctx = document.getElementById("myChart").getContext("2d");
+var data = {
+labels: ["Territories", "Large Halls", "Guild Halls", "Guild Houses", "Parties", "Adventurers", "GPS"],
+datasets: [
+		{
+			label: "Units Per Second",
+			fillColor: "rgba(220,220,220,0.2)",
+			strokeColor: "rgba(220,220,220,1)",
+			pointColor: "rgba(220,220,220,1)",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(220,220,220,1)",
+			data: [(unit7[0] * unit7[1]), (unit6[0] * unit6[1]), (unit5[0] * unit5[1]), (unit4[0] * unit4[1]), (unit3[0] * unit3[1]), (unit2[0] * unit2[1]), GPS]
+		}
+	]
+};
+var myLineChart = new Chart(ctx).Line(data);
+
+
+function updateChart(){
+	myLineChart.datasets[0].points[0].value = (unit7[0] * unit7[1]);
+	myLineChart.datasets[0].points[1].value = (unit6[0] * unit6[1]);
+	myLineChart.datasets[0].points[2].value = (unit5[0] * unit5[1]);
+	myLineChart.datasets[0].points[3].value = (unit4[0] * unit4[1]);
+	myLineChart.datasets[0].points[4].value = (unit3[0] * unit4[1]);
+	myLineChart.datasets[0].points[5].value = (unit2[0] * unit4[1]);
+	myLineChart.datasets[0].points[6].value = GPS;
+	myLineChart.update();
+};
 
 //initializes everything, makes sure all variables are properly done
 function START(){
@@ -187,11 +221,12 @@ function START(){
 };
 
 START();
+updateChart();
 //game loop
 window.setInterval(function(){
 	click(1);
 	goldUpdate();
 	//infUpdate();
-	
+	updateChart();
 	
 }, 1000);
