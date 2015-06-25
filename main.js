@@ -172,7 +172,7 @@ function click(number){
 
 var ctx = document.getElementById("myChart").getContext("2d");
 var data = {
-labels: ["Kingdoms", "Territories", "Large Halls", "Guild Halls", "Guild Houses", "Parties", "Adventurers", "GPS"],
+labels: ["Kingdoms", "Territories", "Large Halls", "Guild Halls", "Guild Houses", "Parties", "Adventurers", "Gold"],
 datasets: [
 		{
 			label: "Units Per Second",
@@ -207,6 +207,7 @@ function updateChart(){
 	myLineChart.datasets[0].points[5].value = (unit3[0] * unit4[1]);
 	myLineChart.datasets[0].points[6].value = (unit2[0] * unit4[1]);
 	myLineChart.datasets[0].points[7].value = GPS;
+	
 	myLineChart.datasets[1].points[0].value = (unit7[0]);
 	myLineChart.datasets[1].points[1].value = (unit6[0]);
 	myLineChart.datasets[1].points[2].value = (unit5[0]);
