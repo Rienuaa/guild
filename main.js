@@ -56,6 +56,7 @@ function buyUnit1(number){
 		updateChart();
 		//shows next upgrade
 		if (unit1[0] >= 1) {
+			document.getElementById('unit2').style.visibility = "visible";
 			document.getElementById('unit2String').style.visibility = "visible";
 			document.getElementById('unit2Button').style.visibility = "visible";
 		};
@@ -71,6 +72,7 @@ function buyUnit2(number){
 		updateChart();
 		//shows next upgrade
 		if (unit2[0] >= 1) {
+			document.getElementById('unit3').style.visibility = "visible";
 			document.getElementById('unit3String').style.visibility = "visible";
 			document.getElementById('unit3Button').style.visibility = "visible";
 		};
@@ -87,6 +89,7 @@ function buyUnit3(number){
 		updateChart();
 		//shows next upgrade
 		if (unit3[0] >= 1) {
+			document.getElementById('unit4').style.visibility = "visible";
 			document.getElementById('unit4String').style.visibility = "visible";
 			document.getElementById('unit4Button').style.visibility = "visible";
 		};
@@ -102,6 +105,7 @@ function buyUnit4(number){
 		updateChart();
 		//shows next upgrade
 		if (unit4[0] >= 1) {
+			document.getElementById('unit5').style.visibility = "visible";
 			document.getElementById('unit5String').style.visibility = "visible";
 			document.getElementById('unit5Button').style.visibility = "visible";
 		};
@@ -117,6 +121,7 @@ function buyUnit5(number){
 		updateChart();
 		//shows next upgrade
 		if (unit5[0] >= 1) {
+			document.getElementById('unit6').style.visibility = "visible";
 			document.getElementById('unit6String').style.visibility = "visible";
 			document.getElementById('unit6Button').style.visibility = "visible";
 		};
@@ -132,6 +137,7 @@ function buyUnit6(number){
 		updateChart();
 		//shows next upgrade
 		if (unit6[0] >= 1) {
+			document.getElementById('unit7').style.visibility = "visible";
 			document.getElementById('unit7String').style.visibility = "visible";
 			document.getElementById('unit7Button').style.visibility = "visible";
 			
@@ -161,6 +167,13 @@ function updateUnits(){
 	document.getElementById('unit4PS').innerHTML = (unit5[0] * unit5[1]);
 	document.getElementById('unit5PS').innerHTML = (unit6[0] * unit6[1]);
 	document.getElementById('unit6PS').innerHTML = (unit7[0] * unit7[1]);
+	document.getElementById('unit1').innerHTML = unit1[0];
+	document.getElementById('unit2').innerHTML = unit2[0];
+	document.getElementById('unit3').innerHTML = unit3[0];
+	document.getElementById('unit4').innerHTML = unit4[0];
+	document.getElementById('unit5').innerHTML = unit5[0];
+	document.getElementById('unit6').innerHTML = unit6[0];
+	document.getElementById('unit7').innerHTML = unit7[0];
 };
 
 //THE LOOP OF THE GAME ITERATES THROUGH THIS ONCE PER SECOND
@@ -239,12 +252,21 @@ function START(){
 	document.getElementById('unit5String').style.visibility = "hidden";
 	document.getElementById('unit6String').style.visibility = "hidden";
 	document.getElementById('unit7String').style.visibility = "hidden";
+	
 	document.getElementById('unit2Button').style.visibility = "hidden";
 	document.getElementById('unit3Button').style.visibility = "hidden";
 	document.getElementById('unit4Button').style.visibility = "hidden";
 	document.getElementById('unit5Button').style.visibility = "hidden";
 	document.getElementById('unit6Button').style.visibility = "hidden";
 	document.getElementById('unit7Button').style.visibility = "hidden";
+	
+	document.getElementById('unit2').style.visibility = "hidden";
+	document.getElementById('unit3').style.visibility = "hidden";
+	document.getElementById('unit4').style.visibility = "hidden";
+	document.getElementById('unit5').style.visibility = "hidden";
+	document.getElementById('unit6').style.visibility = "hidden";
+	document.getElementById('unit7').style.visibility = "hidden";
+	
 };
 
 START();
