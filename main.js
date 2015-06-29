@@ -59,6 +59,7 @@ function buyUnit1(number){
 			document.getElementById('unit2').style.visibility = "visible";
 			document.getElementById('unit2String').style.visibility = "visible";
 			document.getElementById('unit2Button').style.visibility = "visible";
+			document.getElementById('unit2Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -75,6 +76,7 @@ function buyUnit2(number){
 			document.getElementById('unit3').style.visibility = "visible";
 			document.getElementById('unit3String').style.visibility = "visible";
 			document.getElementById('unit3Button').style.visibility = "visible";
+			document.getElementById('unit3Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -92,6 +94,7 @@ function buyUnit3(number){
 			document.getElementById('unit4').style.visibility = "visible";
 			document.getElementById('unit4String').style.visibility = "visible";
 			document.getElementById('unit4Button').style.visibility = "visible";
+			document.getElementById('unit4Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -108,6 +111,7 @@ function buyUnit4(number){
 			document.getElementById('unit5').style.visibility = "visible";
 			document.getElementById('unit5String').style.visibility = "visible";
 			document.getElementById('unit5Button').style.visibility = "visible";
+			document.getElementById('unit5Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -124,6 +128,7 @@ function buyUnit5(number){
 			document.getElementById('unit6').style.visibility = "visible";
 			document.getElementById('unit6String').style.visibility = "visible";
 			document.getElementById('unit6Button').style.visibility = "visible";
+			document.getElementById('unit6Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -140,7 +145,7 @@ function buyUnit6(number){
 			document.getElementById('unit7').style.visibility = "visible";
 			document.getElementById('unit7String').style.visibility = "visible";
 			document.getElementById('unit7Button').style.visibility = "visible";
-			
+			document.getElementById('unit7Total').style.visibility = "visible";
 		};
 	};	
 };
@@ -267,6 +272,12 @@ function START(){
 	document.getElementById('unit6').style.visibility = "hidden";
 	document.getElementById('unit7').style.visibility = "hidden";
 	
+	document.getElementById('unit2Total').style.visibility = "hidden";
+	document.getElementById('unit3Total').style.visibility = "hidden";
+	document.getElementById('unit4Total').style.visibility = "hidden";
+	document.getElementById('unit5Total').style.visibility = "hidden";
+	document.getElementById('unit6Total').style.visibility = "hidden";
+	document.getElementById('unit7Total').style.visibility = "hidden";
 };
 
 START();
@@ -278,4 +289,4 @@ window.setInterval(function(){
 	//infUpdate();
 	updateChart();
 	
-}, 1000);
+}, 500); /* DEFAULT IS 1000, testing is 500 */
